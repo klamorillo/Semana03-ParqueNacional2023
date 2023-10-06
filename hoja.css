@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "Public Sans", sans-serif;
+  font-size: 1.2rem;
+  min-height: 100%;
+}
+
+.grid-container > * {
+  box-shadow: -1px 1px 7px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 4px;
+  padding: 10px;
+  text-align: center;
+}
+
+.header {
+  grid-area: header;
+  background-color: #aeb970;
+  position: relative; /* Necesario para usar ::before o ::after */
+}
+
+.header::before {
+    content: "Parque Nacional de Volcan Poas";
+    color: white; /* Color del texto */
+    font-size: 40px; /* Tamaño de fuente */
+    position: absolute; /* Posición absoluta dentro del encabezado */
+    top: 50%; /* Alineación vertical al centro */
+    left: 50%; /* Alineación horizontal al centro */
+    transform: translate(-50%, -50%); /* Centrar el texto en el medio */
+  }
+
+  .navbar {
+    grid-area: navbar;
+  /*  display: flex;*/
+    justify-content: left; /* Centra horizontalmente */
+    align-items: flex-start; /* Comienza desde la izquierda verticalmente */
+    background-color: #afd6af;
+   /* position: relative; /* Necesario para usar ::before o ::after */
+  }
+  
+  /* Estilos para la lista */
+  .navbar-list {
+    list-style: none; /* Elimina los puntos de viñeta de la lista */
+    padding: 0; /* Elimina el espacio interno predeterminado */
+    margin: 0;
+  }
+  
+  /* Estilos para cada elemento de la lista */
+  .navbar-list li {
+    display: flex; /* Muestra los elementos dentro de cada <li> en línea */
+    align-items: flex-start; /* Alinea los elementos desde la parte superior */
+    margin-bottom: 10px; /* Espacio entre los elementos de la lista */
+  }
+  
+  /* Estilos para el contenido de los elementos */
+  .navbar-list li a {
+    margin-left: 10px; /* Espacio entre el punto y el contenido */
+    font-size: 15px; /* Tamaño de fuente */
+    line-height: 1; /* Espaciado entre líneas */
+  }
+  
+  /* Estilos para el elemento h1 dentro de la lista */
+  .navbar-list li h1 {
+    margin-bottom: 5px; /* Espacio inferior más pequeño después de h1 */
+    font-size: 5px; /* Tamaño de fuente más grande para h1 */
+  }
+  
+  
+
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #fdcfcf;
+}
+
+.main {
+  grid-area: main;
+  background-color: #f5f5f5;
+/*Imagen como de pantalla*/
+  background-image: url('Imagen_VolcanPoas.jpg'); /* Ruta a tu imagen */
+  background-size: cover;
+  background-position: center;
+/*  background-attachment: fixed;*/
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ /* text-align: center;
+  color: white;
+  font-size: 24px;*/
+}
+
+
+.footer {
+  grid-area: footer;
+  background-color: #8c96a0;
+}
+
+.grid-container {
+  display: grid;
+  gap: 10px;
+  grid-template:
+    "header"  100px
+    "navbar"  210px
+    "main"    auto
+    "sidebar" 100px
+    "footer"  100px;
+}
+
+@media (min-width: 600px) {
+  .grid-container {
+    grid-template:
+      "header  header" 100px
+      "navbar  navbar" 50px
+      "main" 100px
+      "sidebar"    100px
+      "footer " 100px /
+      200px    auto;
+  }
+}
+
+@media (min-width: 900px) {
+  .grid-container {
+    grid-template:
+      "header  header header"  100px
+       "main" 100px
+      "navbar  sidebar" 100px
+      "footer "  100px /
+      200px    auto   200px;
+  }
+}
+
+.content {
+  overflow: auto; /* Agrega barras de desplazamiento cuando sea necesario */
+  max-width: 100%; /* Evita que el contenido se desborde horizontalmente */
+  max-height: 100%; /* Evita que el contenido se desborde verticalmente */
+
+}
+
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #fdcfcf;
+  padding: 20px;
+  overflow: auto;
+  max-height: calc(100% - 200px); /* Ajustar la altura máxima según tus necesidades */
+  min-height: 200px;
+  margin-bottom: 20px; /* Agregar margen inferior para separar del footer */
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #8c96a0;
+  max-height: calc(300% - 200px); /* Ajustar la altura máxima según tus necesidades */
+  min-height: 1090px;
+  /*z-index: 1; /* Colocar el footer en un nivel superior */
+  margin-top: 100px; /* Aumenta el margen superior para una separación mayor del sidebar*/
+}
+
+/* Estilos para la tabla título */
+.tabla {
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(53, 51, 51, 0.1); /* Añade una sombra suave */
+  border-collapse: collapse; /* Combina los bordes para una apariencia más definida */
+  font-family: Arial, sans-serif;
+  text-align: center;
+  border-collapse: collapse;
+  
+}
+
+.tabla td {
+  border: 10px solid purple; /* Cambia el color del borde a morado */
+  padding: 10px;
+  background-color: #333;
+  color: white;
+}
+
+/* Estilo para la información de derechos de autor */
+.copyright {
+  font-size: 14px; /* Tamaño de fuente */
+  margin-top: 10px; /* Espaciado superior para la información de derechos de autor */
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
